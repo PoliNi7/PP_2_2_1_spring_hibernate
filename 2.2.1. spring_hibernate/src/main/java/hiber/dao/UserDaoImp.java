@@ -30,7 +30,7 @@ public class UserDaoImp implements UserDao {
    @SuppressWarnings("unchecked")
    public User getUser(String model, int series) {
       TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User " +
-              "where User.car.model = :model and User.car.series = :series");
+              "where car.model = :model and car.series = :series");
       query.setParameter("model", model);
       query.setParameter("series", series);
       return query.getSingleResult();
